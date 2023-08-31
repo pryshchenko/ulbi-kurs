@@ -14,11 +14,16 @@ module.exports = {
                 "node": true
             },
             "files": [
-                ".eslintrc.{js,cjs}"
+                ".eslintrc.{js,cjs}",
+                '**/src/**/*.test.{ts,tsx}'
             ],
             "parserOptions": {
                 "sourceType": "script"
+            },
+            "rules": {
+                'i18next/no-literal-string': 'off'
             }
+
         }
     ],
     "parserOptions": {
@@ -38,7 +43,12 @@ module.exports = {
         'import/prefer-default-export': "off",
         "no-unused-vars": "off",
         "@typescript-eslint/no-unused-vars": "warn",
-        'i18next/no-literal-string': ['error', {markupOnly: true}]
+        'i18next/no-literal-string': ['error', 
+            {
+                markupOnly: true, 
+                ignoreAttribute: ['data-testid']
+            }
+        ]   
     },
     root: true,
     parser: '@typescript-eslint/parser',
